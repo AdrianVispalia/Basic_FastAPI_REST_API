@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    restart: always
+    environment:
+      - DB_ENDPOINT=postgres:5432
+      - DB_USERNAME=user
+      - DB_PASSWORD=password
+      - DB_NAME=test_db
+    ports:
+      - 8000:8000
+    networks:
+      - front-network
+    command: "python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+  
+  postgres:
+    image: postgres:14.1-alpine
+    container_name: postgresql_db
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test_db
+    ports:
+      - 5432:5432
+    networks:
+      - front-network
+    volumes: 
+      - db:/var/lib/postgresql/data
+      - postgres-content:/home/postgres/
+
+networks:
+  front-network:
+    driver: bridge
+volumes:
+  db:
+  postgres-content:
