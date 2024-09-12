@@ -13,8 +13,8 @@ python3 test.py
 
 ## Useful links
 
-- Redoc: `https://localhost:8000/redoc`
-- OpenAPI (Swagger): `https://localhost:8000/docs`
+- Redoc: `http://localhost:8000/redoc`
+- OpenAPI (Swagger): `http://localhost:8000/docs`
 
 ## Folder structure
 
