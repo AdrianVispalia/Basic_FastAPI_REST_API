@@ -19,14 +19,15 @@ python3 test.py
 ## Folder structure
 
 ```bash
-- main.py # router settings + FastAPI settings
+- main.py # FastAPI settings
 - database.py # database connection settings
 - models/  # database objects models
-  |- CountryModel.py # country database object model
+  |- country_model.py # country database object model
 - schemas/ # JSON schemas
-  |- CountrySchema # country JSON schema
+  |- country_schema # country JSON schema
 - routers/ # endpoints + basic business logic
-  |- CountrySchema.py # countries endpoints
+  |- country_router.py # countries endpoints
 - services/
-  |- CountrySrv.py # country services (CRUD)
+  |- country_srv.py # country services (CRUD)
+  |- custom_exceptions.py # Custom CRUD exceptions
 ```

@@ -1,1 +1,1 @@
-from .CountrySchema import *
+from .country_schema import *

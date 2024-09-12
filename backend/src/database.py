@@ -1,3 +1,4 @@
+'''Database configuration file'''
 from os import environ
 import sqlalchemy as _sql
 import sqlalchemy.orm as _sql_orm
@@ -17,8 +18,9 @@ engine = _sql.create_engine(DATABASE_URL)
 SessionLocal = _sql_orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = _sql_decl.declarative_base()
 
-# Function to share the db session
+
 def get_db():
+    '''Function to share the db session'''
     db = SessionLocal()
     try:
         yield db
